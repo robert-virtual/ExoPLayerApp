@@ -5,14 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.exoplayer2.ui.StyledPlayerView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/videoList"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/playerView"
+        tools:listitem="@layout/video_item" />
+
+    <com.google.android.exoplayer2.ui.StyledPlayerControlView
         android:layout_width="match_parent"
         android:id="@+id/playerView"
-        android:layout_height="wrap_content"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:id="@+id/videoList"
-        android:layout_below="@+id/playerView"
-        tools:listitem="@layout/video_item"
+        android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"/>
 </RelativeLayout>

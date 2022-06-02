@@ -9,8 +9,7 @@ class VideosViewHolder(view:View):RecyclerView.ViewHolder(view) {
     val binding = VideoItemBinding.bind(view)
 
     fun render(video:MediaItem){
-        //binding.videoTitle.text = "video"
-        binding.videoTitle.text = video.mediaMetadata.title.toString()
+        binding.videoTitle.text = "song"
         //binding.videoThumbnail.setImageURI(video.mediaMetadata.)
     }
 }

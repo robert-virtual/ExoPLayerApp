@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun loadVideos(){
         val resolver: ContentResolver = contentResolver
-        val uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        val uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
         val cursor  = resolver.query(uri, null, null, null, null)
         when {
             cursor == null -> {
@@ -69,16 +69,16 @@ class MainActivity : AppCompatActivity() {
             }
             !cursor.moveToFirst() -> {
                 // no media on the device
-                Toast.makeText(this, "No se encontraron videos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "No se encontraron Canciones", Toast.LENGTH_SHORT).show()
             }
             else -> {
-                val idColumn: Int = cursor.getColumnIndex(MediaStore.Video.Media._ID)
-                val idTitle: Int = cursor.getColumnIndex(MediaStore.Video.Media.TITLE)
+                val idColumn: Int = cursor.getColumnIndex(MediaStore.Audio.Media._ID)
+                val idTitle: Int = cursor.getColumnIndex(MediaStore.Audio.Media.TITLE)
                 do {
                     val thisId = cursor.getLong(idColumn)
                     val thisTitle = cursor.getLong(idTitle)
                     val contentUri: Uri =
-                        ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, thisId )
+                        ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, thisId )
                     val videoItem = MediaItem.fromUri(contentUri)
                     videoList.add(videoItem)
                     videoAdapter.notifyItemInserted(videoList.size-1)
